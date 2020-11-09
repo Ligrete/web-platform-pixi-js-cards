@@ -1,0 +1,11 @@
+body {
+  background: rgb(68, 68, 68);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  height: -webkit-fill-available;
+}

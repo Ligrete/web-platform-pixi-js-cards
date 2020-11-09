@@ -1,5 +1,20 @@
+let type = "WebGL"
+if (!PIXI.utils.isWebGLSupported()) {
+    type = "canvas"
+}
+
+PIXI.utils.sayHello(type)
+
+const scrW = window.screen.width;
+const scrH = window.screen.height;
+
 const app = new PIXI.Application({
-    width: 800, height: 600, backgroundColor: 0x1099bb, resolution: window.devicePixelRatio || 1,
+    // width: scrW,
+    // height: scrH,
+    width: 800,
+    height: 480,
+    backgroundColor: 0x1099bb,
+    resolution: window.devicePixelRatio || 1,
 });
 document.body.appendChild(app.view);
 
@@ -8,7 +23,7 @@ const container = new PIXI.Container();
 app.stage.addChild(container);
 
 // Create a new texture
-const texture = PIXI.Texture.from('examples/assets/bunny.png');
+const texture = PIXI.Texture.from('bunny.png');
 
 // Create a 5x5 grid of bunnies
 for (let i = 0; i < 25; i++) {
