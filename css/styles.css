@@ -8,4 +8,6 @@ body {
 
 canvas {
   height: -webkit-fill-available;
+  border: solid 3px #13bb85;
+  background-color: #20583cc4;
 }

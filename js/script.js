@@ -22,27 +22,19 @@ const app = new PIXI.Application({
     // height: scrH,
     width: 800,
     height: 480,
-    backgroundColor: 0x1099bb,
+    // backgroundColor: 0x1099bb,
+    transparent: true,
     resolution: window.devicePixelRatio || 1,
 });
+
+
+app.renderer.autoResize = true;
 document.body.appendChild(app.view);
 
 const container = new PIXI.Container();
 
 app.stage.addChild(container);
 
-// Create a new texture
-const texture = PIXI.Texture.from('bunny.png');
-
-
-// Create a 5x5 grid of bunnies
-// for (let i = 0; i < 25; i++) {
-//     const bunny = new PIXI.Sprite(texture);
-//     bunny.anchor.set(0.5);
-//     bunny.x = (i % 5) * 40;
-//     bunny.y = Math.floor(i / 5) * 40;
-//     container.addChild(bunny);
-// }
 
 // Move container to the center
 container.x = app.screen.width / 2;
@@ -61,52 +53,57 @@ app.ticker.add((delta) => {
 
 // texture loader 
 loader
-  .add([
-    "img/cards-pack.json"
-  ])
-  .load(setup);
+    .add([
+        "img/cards-pack.json"
+    ])
+    .load(setup);
 
-// function setup () {
-
-//     gameScene = new Container();
-
-
-//     cards = resources["img/cards-pack.json"].textures;
-//     card = new Sprite( cards["card_selected_large.png"]);
-//     card.anchor.set(0, 0);
-//     gameScene.addChild(card);
-//     console.log(card);
-// }
 
 function setup() {
 
     cardScene = new Container();
 
     cards = resources["img/cards-pack.json"].textures;
-    //Create the cat sprite
 
     cardScene.width = app.screen.width;
     cardScene.height = app.screen.height;
 
-
     cardScene.pivot.x = 0;
     cardScene.pivot.y = cardScene.height / 2;
 
-    cardScene.backgroundColor = "#fff";
-
-
-    var emptyPlaces = [];
-
-    for ( var index = 0; index<4; index++) {
-        let cat = new Sprite( cards["card_selected_large.png"]);
-        cat.scale.set(0.25, 0.25);
-        cat.x = (cat.width * 1.4) * (index+1);
-        cat.y = app.screen.height / 20;
-        cardScene.addChild(cat);
+    for (var index = 0; index < 4; index++) {
+        let emptyCardPlace = new Sprite(cards["card_selected_large.png"]);
+        emptyCardPlace.scale.set(0.75, 0.75);
+        emptyCardPlace.x = (emptyCardPlace.width * 1.4) * (index + 1);
+        emptyCardPlace.y = app.screen.height / 20;
+        cardScene.addChild(emptyCardPlace);
     }
-    
-    //Add the cat to the stage
-    
+
+
+    for (var index = 0; index < 2; index++) {
+        let emptyCardPlace = new Sprite(cards["deck_3.png"]);
+        emptyCardPlace.scale.set(0.8, 0.8);
+        emptyCardPlace.x = (emptyCardPlace.width * 1.415) * (index + 1);
+        emptyCardPlace.y = app.screen.height / 20;
+        cardScene.addChild(emptyCardPlace);
+    }
+
     app.stage.addChild(cardScene);
-  }
+
+
+    // колода карт
+
+    for (var index = 0; index < cardsArray.length; index++) {
+        if (index) {
+            let emptyCardPlace = new Sprite(cards["deck_3.png"]);
+            // emptyCardPlace.scale.set(0.25, 0.25);
+            emptyCardPlace.scale.set(0.8, 0.8);
+            emptyCardPlace.anchor.set(0.5, 0.9);
+            emptyCardPlace.x = app.screen.width / 2.5 + (index + 1);
+            emptyCardPlace.y = app.screen.height / 1.2 - index * (-0.3);
+            emptyCardPlace.rotation = 0.01 + index / cardsArray.length / 2;
+            cardScene.addChild(emptyCardPlace);
+        }
+    }
+}
 
