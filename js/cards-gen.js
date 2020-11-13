@@ -1,3 +1,5 @@
+//  генерация колоды карт
+
 let cardsArray = [
     {
         type: "asda",

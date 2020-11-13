@@ -62,7 +62,6 @@ function onClick() {
     opened.anchor.set(0.5, 0.5);
     // opened.scale.set(0.75);
     opened.scale.set(0, 0.75);
-    // console.log("mousepos", mouseposition.x, mouseposition.y);
     setTimeout(function () {
         if (cardsDeck && cardsArray.length > 0) {
             let slideTween = charm.slideScaleDouble(cardsDeck, opened, app.screen.width / 2, app.screen.height / 2, 0.45, 0.45, 2, 2, delay*1.5);
@@ -80,22 +79,10 @@ function onClick() {
                     // cardsDeck = PIXI.Sprite.from('img/deck.png');
                     container.addChild(opened);
                     setTimeout(function () {
-                        //let secondStep = charm.slide(opened, holderPos[picked.type].x, holderPos[picked.type].y, delay);
                         let secondStep = charm.slideScale(opened, holderPos[picked.type].x, holderPos[picked.type].y, 0.75, 0.75, delay);
                         secondStep.onComplete = () => {
-                            // console.log("secondStep", secondStep);
-                            setTimeout(onClick(), 0);
-                            // var picked = cardsArray.pop();
-                            // const opened = new Sprite(cards[picked.sprite]);
-                            // console.log(picked);
-                            // opened.pivot.set(0.5, 0.5)
-                            // opened.scale.set(0.8);
-                            // opened.interactive = true;
-                            // opened.buttonMode = true;
-                            // opened.on('click', onClick);
-                            // opened.x = app.screen.width/2;
-                            // opened.y = app.screen.height-(app.screen.height/5);
-                            // container.addChild(opened);
+                            // имитация цикличного авторазложения карт по масти с анимацией
+                            // setTimeout(onClick(), 0);
                         };
                     }, 500);
                 }
