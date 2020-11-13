@@ -1,3 +1,13 @@
+// *****************************
+let type = "WebGL"
+if (!PIXI.utils.isWebGLSupported()) {
+    type = "canvas"
+}
+
+PIXI.utils.sayHello(type)
+// *****************************
+
+
 let Container = PIXI.Container,
     loader = PIXI.loader,
     resources = PIXI.loader.resources,
@@ -8,11 +18,8 @@ let Container = PIXI.Container,
     TextStyle = PIXI.TextStyle;
 
 const app = new PIXI.Application({
-    // width: scrW,
-    // height: scrH,
     width: 960,
     height: 640,
-    // backgroundColor: 0x1099bb,
     transparent: true,
     resolution: window.devicePixelRatio || 1,
 });

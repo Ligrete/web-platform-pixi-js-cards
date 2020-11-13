@@ -331,6 +331,87 @@ class Charm {
   }
 
   //2. Complex tweens
+  slideScale(
+    sprite, endX, endY, endScaleX = 0.5, endScaleY = 0.5,
+    frames = 60, type = "smoothstep", yoyo = false, delayBeforeRepeat = 0
+  ) {
+
+    //Add `scaleX` and `scaleY` properties to Pixi sprites
+    this._addScaleProperties(sprite);
+
+    return this.makeTween([
+
+      //Create the x axis tween
+      [sprite, "x", sprite.x, endX, frames, type, yoyo, delayBeforeRepeat],
+
+
+      //Create the scaleX tween
+      [
+        sprite, "scaleX", sprite.scaleX, endScaleX,
+        frames, "smoothstep", false
+      ],
+
+      //Create the y axis tween
+      [sprite, "y", sprite.y, endY, frames, type, yoyo, delayBeforeRepeat],
+
+
+      //Create the scaleY tween
+      [
+        sprite, "scaleY", sprite.scaleY, endScaleY,
+        frames, "smoothstep", false
+      ]
+
+    ]);
+  }
+
+
+  slideScaleDouble(
+    sprite, target, endX, endY, endScaleX = 0.5, endScaleY = 0.5, tendScaleX = 0.5, tendScaleY = 0.5,
+    frames = 60, type = "smoothstep", yoyo = false, delayBeforeRepeat = 0
+  ) {
+
+    //Add `scaleX` and `scaleY` properties to Pixi sprites
+    this._addScaleProperties(sprite);
+    this._addScaleProperties(target);
+
+    return this.makeTween([
+
+      //Create the x axis tween
+      [sprite, "x", sprite.x, endX, frames, type, yoyo, delayBeforeRepeat],
+      [target, "x", target.x, endX, frames, type, yoyo, delayBeforeRepeat],
+
+
+      //Create the scaleX tween
+      [
+        sprite, "scaleX", sprite.scaleX, endScaleX,
+        frames, "smoothstep", false
+      ],
+      [
+        target, "scaleX", target.scaleX, tendScaleX,
+        frames, "smoothstep", false
+      ],
+
+      //Create the y axis tween
+      [sprite, "y", sprite.y, endY, frames, type, yoyo, delayBeforeRepeat],
+      [target, "y", target.y, endY, frames, type, yoyo, delayBeforeRepeat],
+
+
+      //Create the scaleY tween
+      [
+        sprite, "scaleY", sprite.scaleY, endScaleY,
+        frames, "smoothstep", false
+      ],
+      [
+        target, "scaleY", target.scaleY, tendScaleY,
+        frames, "smoothstep", false
+      ]
+
+    ]);
+  }
+
+
+
+
 
   slide(
     sprite, endX, endY,
