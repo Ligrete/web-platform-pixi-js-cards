@@ -1,13 +1,11 @@
 //  генерация колоды карт
 
-let cardsArray = [
-    {
-        type: "asda",
-        order: 0,
-        code: "asda",
-        sprite: "sd"
-    }
-];
+let cardsArray = [{
+    type: "asda",
+    order: 0,
+    code: "asda",
+    sprite: "sd"
+}];
 
 cardsArray.pop();
 
@@ -25,7 +23,7 @@ function genCardSuits() {
                         cardsArray.push({
                             type: "0",
                             order: index + 2,
-                            code: "d"+(index + 2)
+                            code: "d" + (index + 2)
                         });
                         break;
 
@@ -33,7 +31,7 @@ function genCardSuits() {
                         cardsArray.push({
                             type: "1",
                             order: index + 2,
-                            code: "h"+(index + 2)
+                            code: "h" + (index + 2)
                         });
                         break;
 
@@ -41,14 +39,14 @@ function genCardSuits() {
                         cardsArray.push({
                             type: "2",
                             order: index + 2,
-                            code: "s"+(index + 2)
+                            code: "s" + (index + 2)
                         });
                         break;
                     case 3:
                         cardsArray.push({
                             type: "3",
                             order: index + 2,
-                            code: "c"+(index + 2)
+                            code: "c" + (index + 2)
                         });
                         break;
 
@@ -61,7 +59,7 @@ function genCardSuits() {
                         cardsArray.push({
                             type: "0",
                             order: namedCards[index - 9],
-                            code: "d"+namedCards[index - 9].slice(0, 1).toLowerCase()
+                            code: "d" + namedCards[index - 9].slice(0, 1).toLowerCase()
                         });
                         break;
 
@@ -69,7 +67,7 @@ function genCardSuits() {
                         cardsArray.push({
                             type: "1",
                             order: namedCards[index - 9],
-                            code: "h"+namedCards[index - 9].slice(0, 1).toLowerCase()
+                            code: "h" + namedCards[index - 9].slice(0, 1).toLowerCase()
                         });
                         break;
 
@@ -77,14 +75,14 @@ function genCardSuits() {
                         cardsArray.push({
                             type: "2",
                             order: namedCards[index - 9],
-                            code: "s"+namedCards[index - 9].slice(0, 1).toLowerCase()
+                            code: "s" + namedCards[index - 9].slice(0, 1).toLowerCase()
                         });
                         break;
                     case 3:
                         cardsArray.push({
                             type: "3",
                             order: namedCards[index - 9],
-                            code: "c"+namedCards[index - 9].slice(0, 1).toLowerCase()
+                            code: "c" + namedCards[index - 9].slice(0, 1).toLowerCase()
                         });
                         break;
 

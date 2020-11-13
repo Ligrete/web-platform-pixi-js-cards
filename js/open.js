@@ -46,7 +46,7 @@ function onClick() {
         y: app.screen.height * 0.8
     };
 
-    if (cardsArray.length==0) {
+    if (cardsArray.length == 0) {
         console.log("массив пустой");
         container.removeChild(cardsDeck);
         container.removeChild(cardsDeckStatic);
@@ -64,7 +64,7 @@ function onClick() {
     opened.scale.set(0, 0.75);
     setTimeout(function () {
         if (cardsDeck && cardsArray.length > 0) {
-            let slideTween = charm.slideScaleDouble(cardsDeck, opened, app.screen.width / 2, app.screen.height / 2, 0.45, 0.45, 2, 2, delay*1.5);
+            let slideTween = charm.slideScaleDouble(cardsDeck, opened, app.screen.width / 2, app.screen.height / 2, 0.45, 0.45, 2, 2, delay * 1.5);
             //charm.scale(cardsDeck, 0, cardsDeck.height, 4000);
             slideTween.onComplete = () => {
                 if (cardsArray.length == 0) {
@@ -104,7 +104,7 @@ function gameLoop() {
 }
 
 app.ticker.add((delta) => {
-    if (cardsArray.length==0 && cardsDeckStatic && cardsDeck) {
+    if (cardsArray.length == 0 && cardsDeckStatic && cardsDeck) {
         container.removeChild(cardsDeck);
         container.removeChild(cardsDeckStatic);
         cardsDeck = null;
@@ -112,4 +112,3 @@ app.ticker.add((delta) => {
     }
     gameLoop();
 });
-

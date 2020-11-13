@@ -27,9 +27,6 @@ loader
     .load(setup);
 
 
-
-
-
 function setup() {
 
     // атлас текстур
