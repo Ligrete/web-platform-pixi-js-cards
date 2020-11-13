@@ -19,3 +19,9 @@
 **********************************************
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/web-platform-yscl7q)
+
+
+----------------------------------------------
+- Масти карт и их названия
+ ![Image alt](https://github.com/Ligrete/web-platform-pixi-js-cards/raw/master/img/wpOI02GkO00.jpg)
+
